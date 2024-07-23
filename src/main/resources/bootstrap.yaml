@@ -1,0 +1,16 @@
+application:
+  contacto:
+    api:
+      path: /
+spring:
+  application:
+    name: ms-autorizacion
+  main:
+    allow-bean-definition-overriding: true
+info:
+  project:
+    version: 1.0.0
+    title: MS Autorizacion
+    description: microservicio de autorizacion
+server:
+  port: 8094

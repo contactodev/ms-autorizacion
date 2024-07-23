@@ -1,0 +1,13 @@
+management:
+  endpoints:
+    web:
+      base-path: ${application.contacto.api.path}/actuator
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: ${application.contacto.api.path}/swagger/swagger2.json
+application:
+  redirect:
+    base-url: ${BASE_URL}
+    port: ${PORT}
