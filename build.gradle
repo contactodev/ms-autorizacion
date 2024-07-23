@@ -1,0 +1,42 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+	id 'maven-publish'
+}
+
+group = 'com.contacto.seguridad.autorizacion'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+archivesBaseName = 'ms-autorizacion'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.mapstruct:mapstruct-jdk8:1.2.0.Final'
+	implementation 'org.mapstruct:mapstruct-processor:1.2.0.Final'
+	implementation 'commons-codec:commons-codec:1.14'
+	implementation "io.springfox:springfox-boot-starter:3.0.0"
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-context', version: '2.2.6.RELEASE'
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+	implementation group: 'org.hibernate', name: 'hibernate-validator', version: '7.0.1.Final'
+	implementation group: 'org.bouncycastle', name: 'bcprov-ext-jdk16', version: '1.46'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	implementation 'org.springframework.security:spring-security-jwt:1.1.1.RELEASE'
+	implementation 'org.apache.httpcomponents:httpclient:4.5.1'
+	implementation 'org.apache.httpcomponents:httpmime:4.5.1'
+	implementation 'com.auth0:java-jwt:3.8.1'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'io.projectreactor:reactor-test'
+}
+
+test {
+	useJUnitPlatform()
+}

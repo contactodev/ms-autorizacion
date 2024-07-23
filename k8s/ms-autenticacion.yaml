@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-autenticacion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-autenticacion
+  template:
+    metadata:
+      labels:
+        app: ms-autenticacion
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+        - name: ms-autenticacion
+          image: kmilo0825/ms-autenticacion:1.0
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          ports:
+            - containerPort: 8092
+          env:
+            - name: HOSTDB
+              value: "xxx"
+            - name: NOMBREDB
+              value: "xxxx"
+            - name: USUARIODB
+              value: "xxxx"
+            - name: CLAVEDB
+              value: "xxxx"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-autenticacion
+spec:
+  type: LoadBalancer
+  ports:
+      port: 8092
+  selector:
+    app: ms-autenticacion
